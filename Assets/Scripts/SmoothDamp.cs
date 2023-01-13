@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class SmoothDamp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform currentLeadTransform;
+    private float currentVel = 0.0f, smoothTime = 0.1f;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (currentLeadTransform == null)
+        {
+            return;
+        }
+        else
+        {
+            transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, currentLeadTransform.position.x,
+            ref currentVel, smoothTime), transform.position.y, transform.position.z);
+        }
+    }
+    public void SetLeadTransform(Transform leadTransform)
+    {
+        currentLeadTransform = leadTransform;
     }
 }
