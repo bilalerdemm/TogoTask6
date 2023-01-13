@@ -29,17 +29,4 @@ public class InputMovement : MonoBehaviour, IDragHandler
         child.rotation = rot;
         */
     }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            start = true;
-        }
-        if (start == true)
-        {
-            //playerAnim.SetBool("isRunning", true);
-            myPlayer.gameObject.transform.Translate(0, 0, speed * Time.deltaTime);
-        }
-    }
 }
