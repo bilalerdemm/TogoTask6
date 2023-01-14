@@ -9,6 +9,10 @@ public class ObstacleManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && PlayerGameController.instance.StackList.Count == 0)
         {
             Debug.Log("Fail");
+            PlayerGameController.instance.isStop = true;
+            PlayerGameController.instance.start = false;
+            PlayerGameController.instance.playerAnim.SetBool("isFail", true);
+            Finish.instance.losePanel.SetActive(true);
         }
         if (other.gameObject.CompareTag("Collected"))
         {

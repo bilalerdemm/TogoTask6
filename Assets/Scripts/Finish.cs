@@ -5,7 +5,10 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     public Transform finalWay;
-    public GameObject confetti, winPanel;
+    public GameObject confetti, winPanel,losePanel;
+    public static Finish instance;
+    
+    private void Awake() => instance = this;
 
     private void OnTriggerEnter(Collider other)
     {
