@@ -5,6 +5,8 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     public Transform finalWay;
+    public GameObject confetti, winPanel;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Collected"))
@@ -25,6 +27,9 @@ public class Finish : MonoBehaviour
 
             PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
             PlayerGameController.instance.playerAnim.SetBool("isWin", true);
+
+            confetti.gameObject.SetActive(true);
+            winPanel.SetActive(true);
         }
     }
 }
