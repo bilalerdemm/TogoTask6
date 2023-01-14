@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collect
   - Collected
+  - Temp
   layers:
   - Default
   - TransparentFX

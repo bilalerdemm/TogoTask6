@@ -16,6 +16,7 @@ public class PlayerGameController : MonoBehaviour
 
     public Transform parent;
 
+
     private void Awake() => instance = this;
     void Start()
     {
@@ -34,9 +35,15 @@ public class PlayerGameController : MonoBehaviour
             {
                 playerAnim.SetBool("isRunning", true);
                 transform.parent.transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
-
             }
         }
+        /*
+        else
+        {
+            playerAnim.SetBool("isRunning", false);
+            playerAnim.SetBool("isWin", true);
+        }
+        */
     }
     private void OnTriggerEnter(Collider other)
     {

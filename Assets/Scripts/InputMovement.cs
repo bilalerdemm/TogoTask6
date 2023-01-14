@@ -7,12 +7,9 @@ using UnityEngine.EventSystems;
 public class InputMovement : MonoBehaviour, IDragHandler
 {
     public Transform character;
-    public GameObject myPlayer;
     public static InputMovement instance;
 
-
     private bool start = false;
-    public float speed = 5.0f;
 
     private void Awake() => instance = this;
 
@@ -21,12 +18,5 @@ public class InputMovement : MonoBehaviour, IDragHandler
         Vector3 pos = character.position;
         pos.x = Mathf.Clamp(pos.x + (eventData.delta.x / 100), -4, 4);
         character.position = pos;
-
-
-        /*
-        Quaternion rot = child.rotation;
-        rot.y = Mathf.Clamp(rot.y + (eventData.delta.x / 500), -2f, 2f);
-        child.rotation = rot;
-        */
     }
 }

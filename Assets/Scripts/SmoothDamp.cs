@@ -16,7 +16,7 @@ public class SmoothDamp : MonoBehaviour
         else
         {
             transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, currentLeadTransform.position.x,
-            ref currentVel, smoothTime), transform.position.y, transform.position.z);
+                                                              ref currentVel, smoothTime), transform.position.y, transform.position.z);
         }
     }
     public void SetLeadTransform(Transform leadTransform)
