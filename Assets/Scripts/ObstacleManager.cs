@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
 {
+    public Transform stackPoint;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && PlayerGameController.instance.StackList.Count == 0)
@@ -17,6 +18,10 @@ public class ObstacleManager : MonoBehaviour
         if (other.gameObject.CompareTag("Collected"))
         {
             Debug.Log("Collected trigger oldu");
+            PlayerGameController.instance.StackList.Remove(other.gameObject);
+            Destroy(other.gameObject.GetComponent<SmoothDamp>());
+            other.gameObject.transform.parent = transform;
+            other.gameObject.transform.position = stackPoint.position;
         }
 
     }

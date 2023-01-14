@@ -37,13 +37,6 @@ public class PlayerGameController : MonoBehaviour
                 transform.parent.transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
             }
         }
-        /*
-        else
-        {
-            playerAnim.SetBool("isRunning", false);
-            playerAnim.SetBool("isWin", true);
-        }
-        */
     }
     private void OnTriggerEnter(Collider other)
     {
