@@ -27,6 +27,7 @@ public class Finish : MonoBehaviour
 
             other.gameObject.transform.parent = transform;
             other.gameObject.transform.position = finalWay.position;
+            confetti.gameObject.transform.position = finalWay.position + new Vector3(0,2,3);
 
             PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
             PlayerGameController.instance.playerAnim.SetBool("isWin", true);
