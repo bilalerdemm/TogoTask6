@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObstacleManager : MonoBehaviour
 {
     public Transform stackPoint;
+    public TextMeshProUGUI gateCounterText;
+    public int gateCounter;
+    public GameObject counterCube;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && PlayerGameController.instance.StackList.Count == 0)
@@ -22,6 +26,10 @@ public class ObstacleManager : MonoBehaviour
             Destroy(other.gameObject.GetComponent<SmoothDamp>());
             other.gameObject.transform.parent = transform;
             other.gameObject.transform.position = stackPoint.position;
+
+            gateCounter++;
+            counterCube.SetActive(true);
+            gateCounterText.text = gateCounter.ToString();
         }
 
     }

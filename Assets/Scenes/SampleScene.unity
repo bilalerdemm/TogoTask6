@@ -384,6 +384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackPoint: {fileID: 2102467572}
+  gateCounterText: {fileID: 1613058384}
+  gateCounter: 0
+  counterCube: {fileID: 1126554793}
 --- !u!65 &62728622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -592,6 +595,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f3f4c4580d23fc943af0c3aa011a0372, type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f3f4c4580d23fc943af0c3aa011a0372, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3f4c4580d23fc943af0c3aa011a0372, type: 3}
@@ -2004,6 +2011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddbf1105df115d74481d33f644467c42, type: 3}
+--- !u!1 &1126554793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3f4c4580d23fc943af0c3aa011a0372, type: 3}
+  m_PrefabInstance: {fileID: 95987630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1166159745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6057881253108168227, guid: ddbf1105df115d74481d33f644467c42, type: 3}
@@ -2366,6 +2378,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackPoint: {fileID: 0}
+  gateCounterText: {fileID: 0}
+  gateCounter: 0
+  counterCube: {fileID: 0}
 --- !u!65 &1442140766
 BoxCollider:
   m_ObjectHideFlags: 0
