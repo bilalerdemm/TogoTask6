@@ -8,9 +8,15 @@ public class Finish : MonoBehaviour
     public GameObject confetti, winPanel,losePanel;
     public static Finish instance;
     public List<GameObject> finalList;
-    
+    public float moveSpeedFinal = 5.0f
+;
+
     private void Awake() => instance = this;
 
+    private void Update()
+    {
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Collected"))
@@ -24,20 +30,27 @@ public class Finish : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerGameController.instance.isStop = true;
-            PlayerGameController.instance.start = false;
+            //PlayerGameController.instance.isStop = true;
+            //PlayerGameController.instance.start = false;
 
-            other.gameObject.transform.parent = transform;
-            other.gameObject.transform.position = finalWay.position;
+            //other.gameObject.transform.parent = transform;
+            //other.gameObject.transform.position  +=  Vector3.forward * Time.deltaTime * moveSpeedFinal;
+
+            other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
+
+            //other.gameObject.transform.position = finalWay.position;
+            //other.gameObject.transform.position.x = finalList[0].gameObject.transform.position.x;
             confetti.gameObject.transform.position = finalWay.position + new Vector3(0,2,3);
 
-            PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
-            PlayerGameController.instance.playerAnim.SetBool("isWin", true);
+            //PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
+            //PlayerGameController.instance.playerAnim.SetBool("isWin", true);
 
             confetti.gameObject.SetActive(true);
             winPanel.SetActive(true);
 
-            Destroyer();
+            //Destroyer();
+
+            
         }
     }
     void Destroyer()
@@ -47,5 +60,12 @@ public class Finish : MonoBehaviour
             Destroy(item);
         }
         finalList.Clear();
+    }
+    void FinalWayWalk(Collider other)
+    {
+        for (int i = 0; i < finalList.Count; i++)
+        {
+            other.gameObject.transform.position = finalList[i].gameObject.transform.position;
+        }
     }
 }
