@@ -6,7 +6,7 @@ public class ObstacleManager : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && PlayerGameController.instance.StackList.Count == 0)
         {
             Debug.Log("Fail");
         }
@@ -14,17 +14,6 @@ public class ObstacleManager : MonoBehaviour
         {
             Debug.Log("Collected trigger oldu");
         }
-        if (other.gameObject.CompareTag("Temp"))
-        {
-            Debug.Log("Temp trigger oldu");
-        }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Temp"))
-        {
-            Debug.Log("Temp collision oldu");
-        }
     }
 }
