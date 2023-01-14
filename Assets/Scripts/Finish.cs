@@ -7,6 +7,7 @@ public class Finish : MonoBehaviour
     public Transform finalWay;
     public GameObject confetti, winPanel,losePanel;
     public static Finish instance;
+    public List<GameObject> finalList;
     
     private void Awake() => instance = this;
 
@@ -14,6 +15,7 @@ public class Finish : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Collected"))
         {
+            finalList.Add(other.gameObject);
             PlayerGameController.instance.StackList.Remove(other.gameObject);
             Destroy(other.gameObject.GetComponent<SmoothDamp>());
             other.gameObject.transform.parent = transform;
@@ -34,6 +36,16 @@ public class Finish : MonoBehaviour
 
             confetti.gameObject.SetActive(true);
             winPanel.SetActive(true);
+
+            Destroyer();
         }
+    }
+    void Destroyer()
+    {
+        foreach (var item in finalList)
+        {
+            Destroy(item);
+        }
+        finalList.Clear();
     }
 }

@@ -11,6 +11,5 @@ public class LevelManager : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(scene.name);
-
     }
 }
