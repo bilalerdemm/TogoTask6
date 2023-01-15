@@ -59,7 +59,7 @@ public class PlayerGameController : MonoBehaviour
 
         }
     }
-
+    //FINALDE PLAYERI SMOOTH BIR SEKILDE YOLA SOKMAK ICIN YAZILAN KOD.
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)
     {
         float time = 0;

@@ -13,10 +13,6 @@ public class Finish : MonoBehaviour
 
     private void Awake() => instance = this;
 
-    private void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Collected"))
@@ -30,12 +26,16 @@ public class Finish : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
+            isFinished = true;
+            confetti.gameObject.transform.position = finalWay.position + new Vector3(0,2,3);
+            confetti.gameObject.SetActive(true);
+            winPanel.SetActive(true);
+            #region
             //PlayerGameController.instance.isStop = true;
             //PlayerGameController.instance.start = false;
 
             //other.gameObject.transform.parent = transform;
             //other.gameObject.transform.position  +=  Vector3.forward * Time.deltaTime * moveSpeedFinal;
-            isFinished = true;
             //other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
 
             //Vector3 finalPlayerPos = 
@@ -44,17 +44,10 @@ public class Finish : MonoBehaviour
 
             //other.gameObject.transform.position = finalWay.position;
             //other.gameObject.transform.position.x = finalList[0].gameObject.transform.position.x;
-            confetti.gameObject.transform.position = finalWay.position + new Vector3(0,2,3);
 
             //PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
             //PlayerGameController.instance.playerAnim.SetBool("isWin", true);
-
-            confetti.gameObject.SetActive(true);
-            winPanel.SetActive(true);
-
-            //Destroyer();
-
-            
+            #endregion
         }
     }
     void Destroyer()
@@ -65,11 +58,5 @@ public class Finish : MonoBehaviour
         }
         finalList.Clear();
     }
-    void FinalWayWalk(Collider other)
-    {
-        for (int i = 0; i < finalList.Count; i++)
-        {
-            other.gameObject.transform.position = finalList[i].gameObject.transform.position;
-        }
-    }
+
 }

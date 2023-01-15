@@ -25,9 +25,6 @@ public class FinalWall : MonoBehaviour
             isPlayerHit = true;
             PlayerGameController.instance.isStop = true;
             PlayerGameController.instance.start = false;
-
-            //other.gameObject.transform.parent = transform;
-
             PlayerGameController.instance.playerAnim.SetBool("isRunning", false);
             PlayerGameController.instance.playerAnim.SetBool("isWin", true);
         }
