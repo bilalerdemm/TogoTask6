@@ -52,11 +52,8 @@ public class PlayerGameController : MonoBehaviour
             StackList[StackList.Count - 1].gameObject.AddComponent<CollectableTrigger>();
         }
         if (other.CompareTag("Finish"))
-        {
-            print("moveTowards");
-            
+        {            
             StartCoroutine(LerpPosition(targetPos, 1));
-
         }
     }
     //FINALDE PLAYERI SMOOTH BIR SEKILDE YOLA SOKMAK ICIN YAZILAN KOD.

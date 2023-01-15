@@ -13,7 +13,7 @@ public class FinalWall : MonoBehaviour
     {
         if (Finish.instance.finalList.Count > 0)
         {
-            transform.position = Finish.instance.finalList[Finish.instance.finalList.Count - 1].gameObject.transform.position;
+            transform.position = Finish.instance.finalList[Finish.instance.finalList.Count - 1].gameObject.transform.position + new Vector3 (0,0,.75f);
         }
     }
 
