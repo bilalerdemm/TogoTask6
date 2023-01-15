@@ -14,6 +14,7 @@ public class PlayerGameController : MonoBehaviour
 
     public List<GameObject> StackList = new List<GameObject>();
 
+
     public Transform parent;
 
     Vector3 targetPos;
@@ -23,6 +24,7 @@ public class PlayerGameController : MonoBehaviour
     {
         //InvokeRepeating("StackListUpdate", .05f, .05f);
         targetPos = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
+        
     }
 
     void Update()
