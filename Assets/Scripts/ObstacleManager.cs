@@ -9,7 +9,16 @@ public class ObstacleManager : MonoBehaviour
     public TextMeshProUGUI gateCounterText;
     public int gateCounter;
     public GameObject counterCube;
+    public GameObject poffParticle;
+    private void Update()
+    {
+        if (PlayerGameController.instance.StackList.Count > 1)
+        {
+            poffParticle.transform.position = PlayerGameController.instance.StackList[PlayerGameController.instance.StackList.Count - 1].gameObject.transform.position + new Vector3 (0,1,0);
+        }
+    }
     private void OnTriggerEnter(Collider other)
+
     {
         if (other.gameObject.CompareTag("Player") && PlayerGameController.instance.StackList.Count == 0)
         {
@@ -21,10 +30,16 @@ public class ObstacleManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Collected"))
         {
+            if (PlayerGameController.instance.StackList.Count > 1)
+            {
+                poffParticle.SetActive(true);
+            }
+            poffParticle.SetActive(true);
             Debug.Log("Collected trigger oldu");
             PlayerGameController.instance.StackList.Remove(other.gameObject);
             Destroy(other.gameObject.GetComponent<SmoothDamp>());
             other.gameObject.transform.parent = transform;
+            other.gameObject.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             other.gameObject.transform.position = stackPoint.position;
 
             gateCounter++;

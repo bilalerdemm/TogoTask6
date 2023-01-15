@@ -148,6 +148,7 @@ MonoBehaviour:
   gateCounterText: {fileID: 8804371667147315877}
   gateCounter: 0
   counterCube: {fileID: 8569787912873611530}
+  poffParticle: {fileID: 0}
 --- !u!1001 &5311138306503416792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,15 +162,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.51086104
+      value: 0.5952366
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31886145
+      value: 0.37152573
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.6063162
+      value: 1.871621
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,11 +178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.676
+      value: 0.67474
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.3002436
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3751819793182740584, guid: 509b7d76298b8d5408a24968e468db9b, type: 3}
       propertyPath: m_LocalRotation.w
