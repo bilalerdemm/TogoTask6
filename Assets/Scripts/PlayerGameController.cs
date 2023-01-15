@@ -16,11 +16,13 @@ public class PlayerGameController : MonoBehaviour
 
     public Transform parent;
 
+    Vector3 targetPos;
 
     private void Awake() => instance = this;
     void Start()
     {
-        InvokeRepeating("StackListUpdate", .05f, .05f);
+        //InvokeRepeating("StackListUpdate", .05f, .05f);
+        targetPos = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
     }
 
     void Update()
@@ -37,6 +39,8 @@ public class PlayerGameController : MonoBehaviour
                 transform.parent.transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
             }
         }
+
+        StackListUpdate();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +51,26 @@ public class PlayerGameController : MonoBehaviour
             other.tag = "Collected";
             StackList[StackList.Count - 1].gameObject.AddComponent<CollectableTrigger>();
         }
+        if (other.CompareTag("Finish"))
+        {
+            print("moveTowards");
+            
+            StartCoroutine(LerpPosition(targetPos, 1));
+
+        }
+    }
+
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.localPosition;
+        while (time < duration)
+        {
+            transform.localPosition = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.localPosition = targetPosition;
     }
 
     void StackListUpdate()

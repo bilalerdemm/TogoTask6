@@ -9,7 +9,7 @@ public class Finish : MonoBehaviour
     public static Finish instance;
     public List<GameObject> finalList;
     public float moveSpeedFinal = 5.0f
-;
+;   public bool isFinished;
 
     private void Awake() => instance = this;
 
@@ -35,8 +35,12 @@ public class Finish : MonoBehaviour
 
             //other.gameObject.transform.parent = transform;
             //other.gameObject.transform.position  +=  Vector3.forward * Time.deltaTime * moveSpeedFinal;
+            isFinished = true;
+            //other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
 
-            other.transform.position = new Vector3(0, other.transform.position.y, other.transform.position.z);
+            //Vector3 finalPlayerPos = 
+            //other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(0, other.transform.position.y, other.transform.position.z), 2f * Time.deltaTime);
+            //other.transform.position = Vector3.MoveTowards(other.transform.position, new Vector3(0f, other.transform.position.y, other.transform.position.z), 200f);
 
             //other.gameObject.transform.position = finalWay.position;
             //other.gameObject.transform.position.x = finalList[0].gameObject.transform.position.x;

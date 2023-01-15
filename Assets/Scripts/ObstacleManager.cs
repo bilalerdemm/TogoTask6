@@ -34,7 +34,7 @@ public class ObstacleManager : MonoBehaviour
             {
                 poffParticle.SetActive(true);
             }
-            poffParticle.SetActive(true);
+            poffParticle.GetComponent<ParticleSystem>().Play();
             Debug.Log("Collected trigger oldu");
             PlayerGameController.instance.StackList.Remove(other.gameObject);
             Destroy(other.gameObject.GetComponent<SmoothDamp>());
